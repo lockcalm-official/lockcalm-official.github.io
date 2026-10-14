@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LockCalm - Stop Doubting Your Fading Memory. Pocket Peace of Mind</title>
+    <meta name="description" content="Panicking at the train station? Tap once when leaving, forget everything. Visual proof, smart widgets, and NFC locking verification app.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #061526;
+            --bg-card: rgba(13, 29, 52, 0.7);
+            --teal: #50E3C2;
+            --teal-hover: #38bfa1;
+            --text-main: #FFFFFF;
+            --text-sub: #A0B2C6;
+            --border: rgba(80, 227, 194, 0.15);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(80, 227, 194, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 119, 255, 0.08) 0%, transparent 45%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .logo-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #fff;
+        }
+        .brand-name {
+            font-size: 22px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .lang-switch {
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .lang-switch:hover {
+            border-color: var(--teal);
+            color: var(--teal);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 48px;
+        }
+        .hero-content {
+            flex: 1.2;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(80, 227, 194, 0.12);
+            color: var(--teal);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border: 1px solid var(--border);
+        }
+        .hero-title {
+            font-size: 46px;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+        .hero-title span {
+            color: var(--teal);
+        }
+        .hero-desc {
+            font-size: 17px;
+            color: var(--text-sub);
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+        .hero-media {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-phone {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 36px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(80, 227, 194, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Store Buttons */
+        .store-buttons {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn-store {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: #112240;
+            color: #fff;
+            padding: 14px 24px;
+            border-radius: 14px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.2s ease;
+        }
+        .btn-store:hover {
+            background: #1a365d;
+            border-color: var(--teal);
+            transform: translateY(-2px);
+        }
+        .btn-store svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 56px;
+        }
+        .section-title {
+            font-size: 34px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 32px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--teal);
+        }
+        .card-icon {
+            font-size: 32px;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+        .card-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+        .card-desc {
+            color: var(--text-sub);
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        /* Trial Banner */
+        .trial-banner {
+            background: linear-gradient(135deg, rgba(80, 227, 194, 0.15), rgba(0, 119, 255, 0.15));
+            border: 1px solid var(--teal);
+            border-radius: 24px;
+            padding: 48px;
+            text-align: center;
+            margin: 40px 0 80px;
+        }
+        .trial-title {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+        .trial-desc {
+            color: var(--text-sub);
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 28px;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-sub);
+            font-size: 14px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+        .footer-links a {
+            color: var(--text-sub);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover {
+            color: var(--teal);
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 0;
+            }
+            .hero-title {
+                font-size: 34px;
+            }
+            .store-buttons {
+                justify-content: center;
+            }
+            .trial-banner {
+                padding: 32px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <a href="/en.html" class="logo-wrap">
+                <img src="app_icon.png" alt="LockCalm Icon" class="logo-icon" style="width: 36px; height: 36px; border-radius: 10px; object-fit: cover;">
+                <div class="brand-name">LockCalm</div>
+            </a>
+            <div class="header-nav">
+                <a href="/" class="lang-switch">日本語 (JA)</a>
+                <a href="/privacy_en.html" style="color: var(--text-sub); text-decoration: none; font-size: 14px;">Privacy Policy</a>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="badge">✨ 14-Day Full Free Trial</div>
+                <h1 class="hero-title">
+                    Always doubt if you locked up?<br>
+                    <span>Tap once,</span> forget everything.
+                </h1>
+                <p class="hero-desc">
+                    When you do something every day, your brain does it on autopilot—and the memory vanishes.<br>
+                    Stop doubting your memory. Deposit peace of mind with just one tap.<br>
+                    Hit the button as you leave, then go enjoy your day with zero worry.
+                </p>
+                <div class="store-buttons">
+                    <a href="https://apps.apple.com/app/lockcalm/id6742358826" class="btn-store" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.97.04-2.14.65-2.83 1.46-.62.72-1.16 1.88-1.01 3 .08.01.16.02.24.02 1.08 0 2.01-.56 2.61-1.38z"/></svg>
+                        <span>App Store</span>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.lockcalm.lockcalm" class="btn-store" target="_blank" rel="noopener">
+                        <svg viewBox="0 0 24 24"><path d="M3.609 1.814L13.792 12 3.61 22.186c-.184-.136-.312-.345-.312-.596V2.41c0-.251.128-.46.311-.596zm11.31 11.31l2.428 2.428-11.83 6.84 9.402-9.268zm3.555-2.054c.486.28.486.74 0 1.02l-2.428 1.402-2.617-2.617 2.617-2.617 2.428 1.412zm-3.555-2.054L5.517 2.616l11.83 6.84-2.428 2.428z"/></svg>
+                        <span>Google Play</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <img src="hero_en.png" alt="LockCalm English App Screen" class="hero-phone">
+            </div>
+        </section>
+
+        <!-- Features -->
+        <section class="features">
+            <div class="section-header">
+                <h2 class="section-title">5 Features to Free Your Mental Bandwidth</h2>
+                <p style="color: var(--text-sub);">Never turn back to check the door again.</p>
+            </div>
+            <div class="grid-features">
+                <div class="feature-card">
+                    <span class="card-icon">📱</span>
+                    <h3 class="card-title">Home Screen Widgets</h3>
+                    <p class="card-desc">No need to even open the app. A quick glance at your screen confirms lock status and exact timestamp. (Small & Large widgets).</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">📸</span>
+                    <h3 class="card-title">Visual Photo Proof</h3>
+                    <p class="card-desc">For moments of intense doubt, snap a quick photo. Even if your mind goes blank, your eyes won't lie.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🚗</span>
+                    <h3 class="card-title">Car Locks & Parking Notes</h3>
+                    <p class="card-desc">Keep track of your vehicle lock, with automatic GPS location and parking lot notes (e.g. Floor 2, Pillar B-12).</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">⚡</span>
+                    <h3 class="card-title">NFC Quick Launcher</h3>
+                    <p class="card-desc">Place an NFC tag by your door or inside your car. Tap your phone to instantly launch the verification screen without friction.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-icon">🏷️</span>
+                    <h3 class="card-title">Home, Car & Custom Items</h3>
+                    <p class="card-desc">Home and Car are free out of the box. Add unlimited custom items like windows, hair straighteners, or office lockers in Premium.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trial Banner -->
+        <div class="trial-banner">
+            <h2 class="trial-title">Try Every Feature Free for 14 Days</h2>
+            <p class="trial-desc">
+                Experience how light and worry-free your mornings can feel.<br>
+                One-time buyout model—no unexpected recurring subscription charges.
+            </p>
+            <div class="store-buttons" style="justify-content: center;">
+                <a href="https://apps.apple.com/app/lockcalm/id6742358826" class="btn-store">
+                    <span>Get Started Free</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy_en.html">Privacy Policy</a>
+                <a href="/terms_en.html">Terms of Service</a>
+                <a href="/tokushoho_en.html">Legal Disclosure</a>
+                <a href="/">日本語版はこちら</a>
+            </div>
+            <p>© 2026 LockCalm. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
